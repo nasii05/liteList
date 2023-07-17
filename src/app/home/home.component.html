@@ -1,0 +1,51 @@
+<!-- mobile view -->
+
+<!-- header -->
+
+<div class="fixed top-0 left-0 z-[9999] w-full">
+  <div class="w-full h-16 flex bg-white  items-center py-10 shadow-xl">
+    <div class="flex flex-row gap-x-10 items-center">
+      <div class="w-max h-max bg-none p-4 hover:cursor-pointer hover:shadow-md flex items-center justify-center rounded-full ml-4"
+        id="main-btn"
+        (click)="click()">
+        <button >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-7 h-7">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+        </button>
+      </div>
+
+      <h1 class="text-3xl md:text-[20px ] font-bold">Taskly</h1>
+
+      <div
+        class="absolute top-2 right-2 w-max h-max bg-none p-4 hover:cursor-pointer hover:shadow-md flex items-center justify-center rounded-full ml-4"
+        id="main-btn">
+        <button>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-7 h-7">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="h-[80vh] visible md:hidden w-[70vw] bg-blue-200" *ngIf="visible"></div>
+
+<div class="w-full h-screen bg-black flex flex-row">
+    <div class="h-screen hidden md:flex w-[25vw] bg-yellow-300">
+      <h1>weekly tasks</h1>
+    </div>
+    <div class="h-screen md:w-[50vw] w-full bg-blue-300">
+      <h1>Today's tasks</h1>
+    </div>
+    <div class="h-screen hidden md:flex  w-[25vw] bg-emerald-300">
+      <h1>profile</h1>
+    </div>
+</div>
+
+

@@ -1,0 +1,10 @@
+#main-btn{
+  background-image: url('../../assets/images/ellipse.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+
+#main-btn:active{
+  background-color: rgb(250, 250, 19);
+}

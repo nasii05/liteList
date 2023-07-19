@@ -8,3 +8,7 @@
 #main-btn:active{
   background-color: rgb(250, 250, 19);
 }
+
+.demo-inline-calendar-card {
+  width: 300px;
+}

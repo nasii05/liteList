@@ -3,12 +3,12 @@
 <!-- header -->
 
 <div class="fixed top-0 left-0 z-[9999] w-full">
-  <div class="w-full h-16 flex bg-white  items-center py-10 shadow-xl">
+  <div class="w-full h-16 flex bg-white  items-center py-10 ">
     <div class="flex flex-row gap-x-10 items-center">
-      <div class="w-max h-max bg-none p-4 hover:cursor-pointer hover:shadow-md flex items-center justify-center rounded-full ml-4"
-        id="main-btn"
-        (click)="click()">
-        <button >
+      <div
+        class="w-max h-max bg-none p-4 hover:cursor-pointer hover:shadow-md flex items-center justify-center rounded-full ml-4"
+        id="main-btn" (click)="click()">
+        <button>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="w-7 h-7">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -16,7 +16,7 @@
         </button>
       </div>
 
-      <h1 class="text-3xl md:text-[20px ] font-bold">Taskly</h1>
+      <h1 class="text-3xl md:text-xl font-bold">LiteList</h1>
 
       <div
         class="absolute top-2 right-2 w-max h-max bg-none p-4 hover:cursor-pointer hover:shadow-md flex items-center justify-center rounded-full ml-4"
@@ -34,18 +34,80 @@
 </div>
 
 
-<div class="h-[80vh] visible md:hidden w-[70vw] bg-blue-200" *ngIf="visible"></div>
-
-<div class="w-full h-screen bg-black flex flex-row">
-    <div class="h-screen hidden md:flex w-[25vw] bg-yellow-300">
-      <h1>weekly tasks</h1>
-    </div>
-    <div class="h-screen md:w-[50vw] w-full bg-blue-300">
-      <h1>Today's tasks</h1>
-    </div>
-    <div class="h-screen hidden md:flex  w-[25vw] bg-emerald-300">
-      <h1>profile</h1>
-    </div>
+<div class="h-[80vh] visible md:hidden w-full bg-black/25  absolute top-20 left-0 z-[9999] flex" *ngIf="visible">
+  <div class="w-[80%] bg-emerald-300 h-[80vh] relative top-0  left-0 x-[9999] "></div>
+  <div class="w-[20%] h-[80vh] bg-white flex items-center">
+    <button class="rotate-90 bg-red-400 relative right-7 px-5" (click)="click()">close</button>
+  </div>
 </div>
 
+<div class="w-full h-screen bg-black flex flex-row">
+  <div class="h-screen hidden md:flex md:items-center md:flex-col gap-y-2 w-[25vw] bg-white border-r-2 border-r-black
+    overflow-auto">
+    <div class="flex flex-col w-[80%] h-max p-5 bg-white rounded-md mt-2">
+      <div class="md:flex md:flex-col  lg:flex lg:flex-row lg:justify-between">
+        <h1 class="text-xl">Weekly pinned</h1>
+        <p class="text-yellow-400">view all</p>
+      </div>
+    </div>
 
+    <!-- main task maximum expanded model -->
+    <div class="w-[80%] h-40 bg-white shadow-2xl rounded-md">
+      <div class="h-max bg-white w-full py-2 flex flex-row gap-x-1">
+        <div class="w-14 h-12 bg-yellow-300 ml-2 rounded-md flex items-center justify-center">
+          av
+        </div>
+        <div class="w-full bg-white ml-2 h-max py-2 rounded-md flex flex-col ">
+          <h1>Call for doctor tests</h1>
+          <h1>15 Mar 2020 - 9:00AM</h1>
+          <span class="bg-yellow-300 px-3 py-1 w-max mt-2 rounded-2xl text-sm">Personal</span>
+
+          <h1 class="mt-3 text-sm">Ask for blood tests and GYM</h1>
+        </div>
+        <div></div>
+      </div>
+    </div>
+
+    <!-- task-2 minimized model -->
+    <div class="w-[80%] h-max py-2 bg-white shadow-2xl rounded-md">
+      <div class="h-max bg-white w-full py-2 flex flex-row gap-x-1">
+        <div class="w-14 h-12 bg-yellow-300 ml-2 rounded-md flex items-center justify-center">
+          av
+        </div>
+        <div class="w-full bg-white ml-2 h-max py-2 rounded-md flex flex-col justify-between">
+          <h1>Call for doctor tests</h1>
+          <h1>15 Mar 2020 - 9:00AM</h1>
+        </div>
+        <div></div>
+      </div>
+    </div>
+    <!-- add new task model -->
+    <div class="w-[80%] h-max py-2 bg-white shadow-2xl rounded-md">
+      <div class="h-max bg-white w-full py-2 flex flex-row gap-x-1">
+        <div class="w-14 h-12 bg-yellow-300 ml-2 rounded-md flex items-center justify-center">
+          +
+        </div>
+        <div class="w-full bg-white ml-2 h-max py-2 rounded-md flex flex-col justify-between">
+          <h1>Add new weekly pin </h1>
+        </div>
+        <div></div>
+      </div>
+    </div>
+
+    <div class="flex items-center flex-col w-[80%] h-max py-2">
+      <div class="w-full text-center bg-white text-black py-5 mt-2 rounded-md shadow-md">
+        <p> {{selected | date}}</p>
+      </div>
+      <mat-card class="demo-inline-calendar-card mt-2 shadow-md">
+        <mat-calendar [(selected)]="selected"></mat-calendar>
+      </mat-card>
+
+    </div>
+  </div>
+  <div class="h-screen md:w-[50vw] w-full bg-blue-300 border-r-2 border-r-black">
+    <h1>Today's tasks</h1>
+  </div>
+  <div class="h-screen hidden md:flex  w-[25vw] bg-emerald-300 border-r-2 border-r-black">
+    <h1>profile</h1>
+  </div>
+</div>

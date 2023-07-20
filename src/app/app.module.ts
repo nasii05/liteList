@@ -11,13 +11,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule  } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
+import { CustomComponent } from './custom/custom.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TasksComponent,
-    ListComponent
+    ListComponent,
+    CustomComponent
   ],
   imports: [
     BrowserModule,
